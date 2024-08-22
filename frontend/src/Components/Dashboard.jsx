@@ -1,30 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from 'react-router-dom';
+import { ExpertContext } from './ExpertContext';
+import Dropdown from "./Dropdown";
 
 const Dashboard = () => {
   const navigate = useNavigate();
-
-  const experts = [
-    {
-      sno: 1,
-      name: "Bessie Cooper",
-      email: "tanya.hill@example.com",
-      phone: "(308) 555-0121",
-      alumniStatus: "No",
-      companyName: "IBM",
-      companyAddress: "2972 Westheimer Rd. Illinois 85486",
-      event: "Training",
-      date: "4/4/18",
-      coordinatorName: "Judith",
-      coordinatorPhone: "(229) 555-0109",
-      coordinatorEmail: "papathan@yahoo.ca",
-    },
-    // Add more experts here...
-  ];
+  const { experts } = useContext(ExpertContext);
 
   return (
     <div className="bg-gray-800 text-white min-h-screen p-5">
-      {/* Top Navigation */}
       <div className="flex justify-between items-center bg-gray-900 p-4 rounded-lg shadow-lg">
         <h1 className="text-2xl font-bold">Industry Expert Dashboard</h1>
         <div className="flex space-x-4">
@@ -41,7 +25,6 @@ const Dashboard = () => {
             Faculty Visits
           </button>
         </div>
-        {/* Update this button to navigate to the AddDetails page */}
         <button 
           className="bg-blue-500 text-white px-4 py-2 rounded-lg"
           onClick={() => navigate('/addDetails')}
@@ -50,32 +33,32 @@ const Dashboard = () => {
         </button>
       </div>
 
-      {/* Experts Table */}
-      <div className="mt-5">
+      <div className="mt-5 overflow-x-auto h-dvh">
         <table className="min-w-full table-auto">
           <thead>
             <tr className="bg-gray-700">
-              <th className="px-4 py-2">Sno</th>
-              <th className="px-4 py-2">Name</th>
-              <th className="px-4 py-2">Email</th>
-              <th className="px-4 py-2">Phone Number</th>
-              <th className="px-4 py-2">Alumni Status</th>
-              <th className="px-4 py-2">Company Name</th>
-              <th className="px-4 py-2">Company Address</th>
-              <th className="px-4 py-2">Event</th>
-              <th className="px-4 py-2">Date</th>
-              <th className="px-4 py-2">Coordinator Name</th>
-              <th className="px-4 py-2">Coordinator Phone</th>
-              <th className="px-4 py-2">Coordinator Email</th>
+              <th className="px-4 py-2 w-20">Sno</th>
+              <th className="px-4 py-2 w-32">Name</th>
+              <th className="px-4 py-2 w-48">Email</th>
+              <th className="px-4 py-2 w-40">Phone Number</th>
+              <th className="px-4 py-2 w-24">Alumni Status</th>
+              <th className="px-4 py-2 w-48">Company Name</th>
+              <th className="px-4 py-2 w-64">Company Address</th>
+              <th className="px-4 py-2 w-32">Event</th>
+              <th className="px-4 py-2 w-32">Date</th>
+              <th className="px-4 py-2 w-48">Coordinator Name</th>
+              <th className="px-4 py-2 w-48">Coordinator Phone</th>
+              <th className="px-4 py-2 w-48">Coordinator Email</th>
+              <th className="px-4 py-2 w-32">Actions</th>
             </tr>
           </thead>
           <tbody>
             {experts.map((expert, index) => (
               <tr key={index} className="bg-gray-800">
-                <td className="border px-4 py-2">{expert.sno}</td>
+                <td className="border px-4 py-2">{index + 1}</td>
                 <td className="border px-4 py-2">{expert.name}</td>
                 <td className="border px-4 py-2">{expert.email}</td>
-                <td className="border px-4 py-2">{expert.phone}</td>
+                <td className="border px-4 py-2">{expert.phoneNumber}</td> {/* Updated this line */}
                 <td className="border px-4 py-2">{expert.alumniStatus}</td>
                 <td className="border px-4 py-2">{expert.companyName}</td>
                 <td className="border px-4 py-2">{expert.companyAddress}</td>
@@ -84,6 +67,7 @@ const Dashboard = () => {
                 <td className="border px-4 py-2">{expert.coordinatorName}</td>
                 <td className="border px-4 py-2">{expert.coordinatorPhone}</td>
                 <td className="border px-4 py-2">{expert.coordinatorEmail}</td>
+                <td className="border px-4 py-2"><Dropdown /></td>
               </tr>
             ))}
           </tbody>

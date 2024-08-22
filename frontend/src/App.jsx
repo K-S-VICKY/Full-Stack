@@ -1,11 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ExpertProvider } from './Components/ExpertContext'; 
+// Import ExpertProvider
+import { FacultyVisitProvider } from './Components/FacultyVisitContext'; // Import FacultyVisitProvider
 import LoginPage from './Components/LoginPage';
 import SignupPage from './Components/SignupPage';
 import Dashboard from './Components/Dashboard';
 import FacultyVisitDashboard from './Components/FacultyVisitDashboard';
-import AddDetails from './Components/AddDetails';  
-import AddFacultyVisitDetails from './Components/AddFacultyVisitDetails';  // Import the AddFacultyVisitDetails component
+import AddDetails from './Components/AddDetails';
+import AddFacultyVisitDetails from './Components/AddFacultyVisitDetails';
 
 function App() {
   const handleLogin = () => {
@@ -14,14 +17,18 @@ function App() {
 
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<LoginPage onLogin={handleLogin} />} />
-        <Route path="/signup" element={<SignupPage />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/facultyVisits" element={<FacultyVisitDashboard />} />
-        <Route path="/addDetails" element={<AddDetails />} />  
-        <Route path="/addFacultyVisitDetails" element={<AddFacultyVisitDetails />} /> {/* Add this route */}
-      </Routes>
+      <ExpertProvider>
+        <FacultyVisitProvider>
+          <Routes>
+            <Route path="/" element={<LoginPage onLogin={handleLogin} />} />
+            <Route path="/signup" element={<SignupPage />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/facultyVisits" element={<FacultyVisitDashboard />} />
+            <Route path="/addDetails" element={<AddDetails />} />  
+            <Route path="/addFacultyVisitDetails" element={<AddFacultyVisitDetails />} /> 
+          </Routes>
+        </FacultyVisitProvider>
+      </ExpertProvider>
     </Router>
   );
 }

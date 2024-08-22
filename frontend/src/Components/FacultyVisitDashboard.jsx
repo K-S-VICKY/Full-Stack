@@ -1,22 +1,11 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
+import { useFacultyVisit } from './FacultyVisitContext';
+import Dropdown from "./Dropdown";
 
 const FacultyVisitDashboard = () => {
   const navigate = useNavigate();
-
-  const visits = [
-    {
-      sno: 1,
-      name: "John Doe",
-      email: "john.doe@example.com",
-      phoneNumber: "123-456-7890",
-      companyName: "Google",
-      companyAddress: "1600 Amphitheatre Parkway, Mountain View, CA",
-      event: "Industry Collaboration",
-      date: "12/05/2023",
-    },
-    // Add more visits here...
-  ];
+  const { visits } = useFacultyVisit();
 
   return (
     <div className="bg-gray-800 text-white min-h-screen p-5">
@@ -58,12 +47,13 @@ const FacultyVisitDashboard = () => {
               <th className="px-4 py-2">Company Address</th>
               <th className="px-4 py-2">Event</th>
               <th className="px-4 py-2">Date</th>
+              <th className="px-4 py-2">Actions</th>
             </tr>
           </thead>
           <tbody>
             {visits.map((visit, index) => (
               <tr key={index} className="bg-gray-800">
-                <td className="border px-4 py-2">{visit.sno}</td>
+                <td className="border px-4 py-2">{index + 1}</td>
                 <td className="border px-4 py-2">{visit.name}</td>
                 <td className="border px-4 py-2">{visit.email}</td>
                 <td className="border px-4 py-2">{visit.phoneNumber}</td>
@@ -71,6 +61,7 @@ const FacultyVisitDashboard = () => {
                 <td className="border px-4 py-2">{visit.companyAddress}</td>
                 <td className="border px-4 py-2">{visit.event}</td>
                 <td className="border px-4 py-2">{visit.date}</td>
+                <td className="border px-4 py-2"><Dropdown /></td>
               </tr>
             ))}
           </tbody>
