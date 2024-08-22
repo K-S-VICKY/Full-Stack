@@ -1,38 +1,26 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoginPage from './Components/LoginPage';
+import SignupPage from './Components/SignupPage';
 import Dashboard from './Components/Dashboard';
 import FacultyVisitDashboard from './Components/FacultyVisitDashboard';
+import AddDetails from './Components/AddDetails';  
+import AddFacultyVisitDetails from './Components/AddFacultyVisitDetails';  // Import the AddFacultyVisitDetails component
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
   const handleLogin = () => {
-    // Assuming login is successful
-    setIsLoggedIn(true);
+    // Logic after a successful login
   };
 
   return (
     <Router>
       <Routes>
-        <Route
-          path="/"
-          element={
-            isLoggedIn ? <Navigate to="/dashboard" /> : <LoginPage onLogin={handleLogin} />
-          }
-        />
-        <Route
-          path="/dashboard"
-          element={
-            isLoggedIn ? <Dashboard /> : <Navigate to="/" />
-          }
-        />
-        <Route
-          path="/faculty-visit"
-          element={
-            isLoggedIn ? <FacultyVisitDashboard /> : <Navigate to="/" />
-          }
-        />
+        <Route path="/" element={<LoginPage onLogin={handleLogin} />} />
+        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/facultyVisits" element={<FacultyVisitDashboard />} />
+        <Route path="/addDetails" element={<AddDetails />} />  
+        <Route path="/addFacultyVisitDetails" element={<AddFacultyVisitDetails />} /> {/* Add this route */}
       </Routes>
     </Router>
   );

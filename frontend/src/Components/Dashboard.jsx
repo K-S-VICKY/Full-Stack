@@ -1,6 +1,9 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 
-const Dashboard = ({ onNavigate }) => {
+const Dashboard = () => {
+  const navigate = useNavigate();
+
   const experts = [
     {
       sno: 1,
@@ -27,18 +30,24 @@ const Dashboard = ({ onNavigate }) => {
         <div className="flex space-x-4">
           <button
             className="text-purple-500"
-            onClick={() => onNavigate('dashboard')}
+            onClick={() => navigate('/dashboard')}
           >
             Industry Experts
           </button>
           <button
             className="text-purple-500"
-            onClick={() => onNavigate('facultyVisits')}
+            onClick={() => navigate('/facultyVisits')}
           >
             Faculty Visits
           </button>
         </div>
-        <button className="bg-blue-500 text-white px-4 py-2 rounded-lg">+ Create</button>
+        {/* Update this button to navigate to the AddDetails page */}
+        <button 
+          className="bg-blue-500 text-white px-4 py-2 rounded-lg"
+          onClick={() => navigate('/addDetails')}
+        >
+          + Create
+        </button>
       </div>
 
       {/* Experts Table */}
