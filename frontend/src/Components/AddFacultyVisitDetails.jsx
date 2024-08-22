@@ -36,6 +36,10 @@ const AddFacultyVisitDetails = () => {
     navigate('/facultyVisits');
   };
 
+  const handleCancel = () => {
+    navigate('/facultyVisits'); // Navigate to FacultyVisitDashboard page
+  };
+
   return (
     <div className="min-h-screen bg-gray-800 flex justify-center items-center p-10">
       <div className="w-full max-w-3xl bg-gray-700 p-8 rounded-lg shadow-lg flex flex-col justify-between h-full">
@@ -120,8 +124,22 @@ const AddFacultyVisitDetails = () => {
               />
             </div>
           </div>
-          <div className="flex justify-end">
-            <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded-lg">SAVE</button>
+          <div className="flex justify-end space-x-4">
+            <button 
+              type="button" 
+              className="bg-red-500 text-white p-2 rounded-lg"
+              style={{ width: '2in' }}
+              onClick={handleCancel}
+            >
+              Cancel
+            </button>
+            <button 
+              type="submit" 
+              className="bg-blue-500 text-white p-2 rounded-lg"
+              style={{ width: '2in' }}  // Set the width of the Save button to 2 inches
+            >
+              Save
+            </button>
           </div>
         </form>
       </div>

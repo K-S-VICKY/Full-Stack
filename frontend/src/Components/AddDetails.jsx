@@ -9,7 +9,7 @@ const AddDetails = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phoneNumber: '', // Ensured this field is correct
+    phoneNumber: '',
     isAlumnus: '',
     companyName: '',
     companyAddress: '',
@@ -33,6 +33,10 @@ const AddDetails = () => {
       event: formData.eventType,
       date: formData.eventDate,
     });
+    navigate('/dashboard');
+  };
+
+  const handleCancel = () => {
     navigate('/dashboard');
   };
 
@@ -197,10 +201,19 @@ const AddDetails = () => {
               />
             </div>
           </div>
-          <div className="mt-6">
+          <div className="mt-6 flex justify-end space-x-4">
+            <button 
+              type="button" 
+              className="bg-red-500 text-white px-4 py-2 rounded-lg"
+              style={{ width: '2in' }}
+              onClick={handleCancel}
+            >
+              Cancel
+            </button>
             <button 
               type="submit" 
-              className="w-full bg-blue-500 text-white p-2 rounded-lg"
+              className="bg-blue-500 text-white px-4 py-2 rounded-lg"
+              style={{ width: '2in' }}
             >
               Save
             </button>
