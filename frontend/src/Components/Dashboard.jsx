@@ -48,7 +48,7 @@ const Dashboard = () => {
     <div className="bg-gray-800 text-white min-h-screen p-5">
       <div className="flex justify-between items-center bg-gray-900 p-4 rounded-lg shadow-lg">
         <h1 className="text-2xl font-bold">Industry Expert Dashboard</h1>
-        <div className="relative -ml-[288px] space-x-4 flex items-center">
+        <div className="flex space-x-4 items-center">
           <button
             className="text-purple-500 flex items-center space-x-2"
             onClick={() => navigate('/dashboard')}

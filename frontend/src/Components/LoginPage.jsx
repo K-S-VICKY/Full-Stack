@@ -58,27 +58,27 @@ function LoginPage() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-blue-900">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-96">
+    <div className="flex items-center justify-center min-h-screen bg-blue-950">
+      <div className="bg-white p-12 rounded-lg shadow-lg w-[32rem]"> {/* Increased padding and width */}
         <div className="text-center">
           <img
             src={logo}
             alt="Bannari Amman Institute of Technology"
-            className="mx-auto mb-4 w-24 h-24"
+            className="mx-auto mb-4 w-28 h-28" // Slightly increased logo size
           />
-          <h2 className="text-2xl font-bold mb-2">Bannari Amman Institute of Technology</h2>
+          <h2 className="text-3xl font-bold mb-4">IIPC BIT</h2> {/* Increased text size */}
         </div>
         {!showLogin ? (
           <div className="flex flex-col items-center">
             <button
               onClick={() => setShowLogin(true)}
-              className="w-full bg-blue-500 text-white py-2 rounded-lg shadow-lg mb-4 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full bg-blue-500 text-white py-3 rounded-lg shadow-lg mb-4 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               Login
             </button>
             <button
               onClick={() => navigate('/signup')}
-              className="w-full bg-green-500 text-white py-2 rounded-lg shadow-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full bg-green-500 text-white py-3 rounded-lg shadow-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500"
             >
               Sign Up
             </button>
@@ -99,7 +99,7 @@ function LoginPage() {
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
             <div className="mb-4">
@@ -111,7 +111,7 @@ function LoginPage() {
                 id="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
             <div className="flex items-center justify-between mb-4">
@@ -129,7 +129,7 @@ function LoginPage() {
             </div>
             <button
               type="submit"
-              className="w-full bg-blue-500 text-white py-2 rounded-lg shadow-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full bg-blue-500 text-white py-3 rounded-lg shadow-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               Sign In
             </button>

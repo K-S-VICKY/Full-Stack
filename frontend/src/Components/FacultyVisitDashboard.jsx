@@ -33,11 +33,11 @@ const FacultyVisitDashboard = () => {
     });
 
   return (
-    <div className="bg-gray-800 text-white min-h-screen p-5">
+    <div className="bg-gray-800 text-white min-h-screen p-5 overflow-y-auto"> {/* Added overflow-y-auto */}
       {/* Top Navigation */}
-      <div className="flex justify-between items-center bg-gray-900 p-4 rounded-lg shadow-lg">
-        <h1 className="text-2xl font-bold">Faculty Visit Dashboard</h1>
-        <div className="flex space-x-4" style={{ marginLeft: '-3in' }}>
+      <div className="flex flex-wrap justify-between items-center bg-gray-900 p-4 rounded-lg shadow-lg">
+        <h1 className="text-2xl font-bold mb-4 md:mb-0">Faculty Visit Dashboard</h1>
+        <div className="flex flex-wrap justify-center md:justify-start space-x-4">
           <button
             className="text-purple-500 flex items-center space-x-2"
             onClick={() => navigate('/dashboard')}
@@ -54,7 +54,7 @@ const FacultyVisitDashboard = () => {
           </button>
         </div>
         <button 
-          className="bg-blue-500 text-white px-4 py-2 rounded-lg"
+          className="bg-blue-500 text-white px-4 py-2 rounded-lg mt-4 md:mt-0"
           onClick={() => navigate('/addFacultyVisitDetails')}
         >
           + Create
@@ -62,21 +62,21 @@ const FacultyVisitDashboard = () => {
       </div>
 
       {/* Search and Sort Options */}
-      <div className="flex mt-5 justify-between">
+      <div className="flex flex-col md:flex-row mt-5 justify-between items-center">
         {/* Search Input */}
         <input
           type="text"
           placeholder="Search..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="bg-gray-700 text-white px-4 py-2 rounded-lg w-1/3"
+          className="bg-gray-700 text-white px-4 py-2 rounded-lg mb-4 md:mb-0 w-full md:w-1/3"
         />
 
         {/* Sort Dropdown */}
         <select
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value)}
-          className="bg-gray-700 text-white px-4 py-2 rounded-lg"
+          className="bg-gray-700 text-white px-4 py-2 rounded-lg w-full md:w-auto"
         >
           <option value="date">Sort by Date</option>
           <option value="name">Sort by Name</option>
