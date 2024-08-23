@@ -50,7 +50,7 @@ const Dashboard = () => {
         <h1 className="text-2xl font-bold">Industry Expert Dashboard</h1>
         <div className="flex space-x-4 items-center">
           <button
-            className="text-purple-500 flex items-center space-x-2"
+            className="text-purple-500 font-bold text-[20px] flex items-center space-x-2"
             onClick={() => navigate('/dashboard')}
           >
             <FontAwesomeIcon icon={faUserTie} />
@@ -108,7 +108,9 @@ const Dashboard = () => {
               <th className="px-4 py-2 w-32">Event</th>
               <th className="px-4 py-2 w-32">Date</th>
               <th className="px-4 py-2 w-48">Coordinator Name</th>
+              <th className="px-4 py-2 w-48">Coordinator department name</th>
               <th className="px-4 py-2 w-48">Coordinator Phone</th>
+
               <th className="px-4 py-2 w-48">Coordinator Email</th>
               <th className="px-4 py-2 w-32">Actions</th>
             </tr>

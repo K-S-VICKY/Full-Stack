@@ -46,7 +46,7 @@ const FacultyVisitDashboard = () => {
             <span>Industry Experts</span>
           </button>
           <button
-            className="text-purple-500 flex items-center space-x-2"
+            className="text-purple-500 font-bold  text-[20px] flex items-center space-x-2"
             onClick={() => navigate('/facultyVisits')}
           >
             <FontAwesomeIcon icon={faChalkboardTeacher} />
